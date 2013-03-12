@@ -1,4 +1,14 @@
 Shoppit::Application.routes.draw do
+  resources :items
+  # do
+  #   member do
+  #     get 'popular'
+  #     post 'devote'
+  #   end
+  #
+  #   post "vote", :on => :collection
+  # end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
