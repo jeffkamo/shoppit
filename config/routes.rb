@@ -1,5 +1,7 @@
 Shoppit::Application.routes.draw do
   resources :items
+  resources :comments
+
   # do
   #   member do
   #     get 'popular'
