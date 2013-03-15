@@ -7,8 +7,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    render :nothing => true
-    # redirect to newly created item
+    @item = Item.new(params[:item])
+    if @item.save
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   # def vote

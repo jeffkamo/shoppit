@@ -1,0 +1,14 @@
+<h1>New Comment!</h1>
+
+<%= form_for @comment do |f| %>
+
+  <%= f.label :dialogue %>
+  
+  <br />
+
+  <%= f.text_area :dialogue %>
+
+  <br />
+
+  <%= f.submit %>
+<% end %>
