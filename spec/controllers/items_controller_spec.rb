@@ -65,4 +65,43 @@ describe ItemsController do
       response.should render_template(:new)
     end
   end
+
+  describe "Updating an Item" do
+    let(:item) { Item.create!(
+      :name => 'My Name',
+      :description => 'My description',
+      :cost => 99.99,
+      :url => 'www.google.com'
+    )}
+
+    context "calling edit" do
+      before { get 'edit', { :id => item.id } }
+      it "should fetch the current question" do
+        assigns(:item).should eq(item)
+      end
+
+      it "should render the edit template" do
+        response.should render_template('edit')
+      end
+    end
+
+    context "calling update" do
+      context "with valid parameters" do
+        let(:valid_parameters) {{ :description => 'My new description' }}
+
+        before { put 'update', { :id => item.id, :item => valid_parameters } }
+
+        it "should change the value of attributes passed to the update" do
+          Item.find(item.id).description.should eq valid_parameters[:description]
+        end
+
+        it "should redirect to Item show page with successful update" do
+          response.should redirect_to item_path(item)
+        end
+      end
+
+      # context "with invalid parameters" do
+      # end
+    end
+  end
 end

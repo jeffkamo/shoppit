@@ -19,12 +19,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # def vote
-  # end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
-  # def devote
-  # end
-
-  # def popular
-  # end
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params[:item])
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
 end
