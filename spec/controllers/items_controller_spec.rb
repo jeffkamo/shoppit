@@ -100,8 +100,38 @@ describe ItemsController do
         end
       end
 
-      # context "with invalid parameters" do
-      # end
+      context "with invalid parameters" do
+        let(:invalid_parameters) { { :name => "" } }
+
+        before { put 'update', { :id => item.id, :item => invalid_parameters } }
+
+        it "should NOT change the value of attributes" do
+          Item.find(item.id).name.should eq item.name
+        end
+
+        it "should render the :edit template" do
+          response.should render_template(:edit)
+        end
+      end
+    end
+  end
+
+  describe "Destroy an Item" do
+    let(:item) { Item.create!({
+      :name => 'My Name',
+      :description => "My description",
+      :cost => 99.99,
+      :url => 'http://www.google.com'
+    }) }
+
+    it "should delete the item from the database" do
+      delete 'destroy', :id => item.id
+      Item.find_by_id(item.id).should == nil
+    end
+
+    it "should redirect to the Index list page after successfull delete" do
+      delete 'destroy', :id => item.id
+      response.should redirect_to items_path
     end
   end
 end
