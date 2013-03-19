@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Shoppit</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag "application", :media => "all" %>
 </head>
 <body>
+  <div class="wrap">
+    <header class="apphead navbar nav-fixed-top">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Shoppit</a>
+        <!--ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul-->
+      </div>
+    </header>
 
-<%= yield %>
+    <section class="app container">
+      <%= yield %>
+    </section>
 
+    <div class="push"></div>
+  </div>
+  
+  <footer class="appfoot">
+    <div class="container">
+      <p class="muted credit">A "Ruby On Rails, For Starters" Workshop Site by <strong>Jeff Kamo</strong></p>
+    </div>
+  </footer>
+
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
