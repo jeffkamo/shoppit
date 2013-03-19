@@ -1,2 +1,9 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<% @items.each do |item| %>
+  <article class="app-item">
+    <h2>
+      <%= link_to item.name, item %>
+    </h2>
+
+    <%= item.description %>
+  </article>
+<% end %>
