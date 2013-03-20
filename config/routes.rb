@@ -1,6 +1,9 @@
 Shoppit::Application.routes.draw do
   resources :items
-  resources :comments
+
+  resources :items, :only => [:show, :edit] do
+    resources :comments
+  end
 
   # do
   #   member do

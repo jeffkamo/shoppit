@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :find_item, :only => [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all
   end
@@ -17,16 +19,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @comments = @item.comments
+    # Get the current item's comments
+    @all_comments = @item.comments
+
+    # Prepare an empty comment
+    @comment = Comment.new
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
       redirect_to item_path(@item)
     else
@@ -35,11 +38,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to items_path
     else
       render :nothing => true
     end
+  end
+
+  private
+
+  def find_item
+    @item = Item.find(params[:item_id] || params[:id])
   end
 end

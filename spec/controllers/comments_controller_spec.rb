@@ -11,10 +11,10 @@ describe CommentsController do
 
   describe "Creating a new comment" do
     
-    it "should respond to a post request" do
-      post 'create'
-      response.should be_success
-    end
+    # it "should respond to a post request" do
+    #   post 'create'
+    #   response.should be_success
+    # end
 
     it "should create a new DB record" do
       # 
