@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comments = @item.comments
   end
 
   def edit

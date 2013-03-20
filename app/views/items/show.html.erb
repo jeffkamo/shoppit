@@ -1,5 +1,31 @@
+<% # -------------------------------------------------- # %>
+<% # Item Introduction %>
+
 <h1>
     <%= link_to @item.name, @item %>
 </h1>
 
 <%= @item.description %>
+
+<% # -------------------------------------------------- # %>
+<% # Comment Section %>
+
+<% unless @comments.empty? %>
+  <h2>Comments</h2>
+  <% @comments.each do |c| %>
+    <article class="app-comment">
+      <%= c.dialogue %>
+    </article>
+  <% end %>
+
+<% else %>
+
+  <div class="muted">
+    There are currently no comments!
+  </div>
+<% end %>
+
+<% # -------------------------------------------------- # %>
+<% # Add New Comment %>
+
+<% # form_for @comment %>
