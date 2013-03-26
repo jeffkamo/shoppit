@@ -1,36 +1,14 @@
 <% # -------------------------------------------------- # %>
 <% # Item Introduction %>
 
-<h1>
-    <%= link_to @item.name, @item %>
-</h1>
+<section>
+  <h1>
+      <%= link_to @item.name, @item %>
+  </h1>
 
-<%= @item.description %>
+  <%= render "item-rank" %>
 
-<% # -------------------------------------------------- # %>
-<% # New Comment Form %>
+  <%= @item.description %>
+</section>
 
-<h2>Discussion</h2>
-<%= form_for @comment, :url => item_comments_path(@item) do |f| %>
-  <%= f.text_area :dialogue %>
-  <%= f.submit %>
-<% end %>
-
-<% # -------------------------------------------------- # %>
-<% # Display Existing Comments %>
-
-<% unless @all_comments.empty? %>
-  <% @all_comments.each do |c| %>
-    <article class="app-comment">
-      <%= c.dialogue %>
-      <%= link_to "Edit", comment_path(c) %>
-      <%= link_to "Delete", comment_path(c), :method => :delete, :confirm => "Are you sure?" %>
-    </article>
-  <% end %>
-
-<% else %>
-
-  <div class="muted">
-    There are currently no comments!
-  </div>
-<% end %>
+<%= render "comments" %>

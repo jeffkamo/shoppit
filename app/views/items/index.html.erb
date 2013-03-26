@@ -1,9 +1,17 @@
-<% @items.each do |item| %>
-  <article class="app-item">
-    <h2>
-      <%= link_to item.name, item %>
-    </h2>
+<div class="app-items row">
+  <% @items.each do |item| %>
+    <article class="app-item span9">
+      <header class="item-header">
+        <h2 class="item-heading">
+          <%= link_to item.name, item %>
+        </h2>
+      </header>
 
-    <%= item.description %>
-  </article>
-<% end %>
+      <%= render "item-rank" %>
+      
+      <div class="item-body">
+        <%= item.description %>
+      </div>
+    </article>
+  <% end %>
+</div>

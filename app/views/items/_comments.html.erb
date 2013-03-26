@@ -1,0 +1,32 @@
+<aside class="app-comments">
+  <h2>Discussion</h2>
+
+  <% # -------------------------------------------------- # %>
+  <% # New Comment Form %>
+
+  <%= form_for @comment, :url => item_comments_path(@item) do |f| %>
+    <%= f.text_area :dialogue, :rows => 5 %>
+    <br />
+    <%= f.submit 'Post Your Thoughts', :class => 'btn' %>
+  <% end %>
+
+  <% # -------------------------------------------------- # %>
+  <% # Display Existing Comments %>
+
+  <% unless @all_comments.empty? %>
+    <% @all_comments.each do |c| %>
+      <article class="comment">
+        <%= c.dialogue %>
+        <footer>
+          <%= link_to "Edit", edit_item_comment_path(c) %>
+          <%= link_to "Delete", item_comment_path(c), :method => :delete, :confirm => "Are you sure?" %>
+        </footer>
+      </article>
+    <% end %>
+  <% else %>
+    <div class="muted">
+      There are currently no comments!
+    </div>
+  <% end %>
+
+</aside>

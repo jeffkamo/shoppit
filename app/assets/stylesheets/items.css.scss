@@ -1,3 +1,69 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.app-item {
+  position: relative;
+  
+  padding-bottom: 1rem;
+  
+  &:hover {
+    background: #f9f9f9;
+  }
+}
+
+.item-header {
+  position: relative;
+
+  .item-heading {
+    padding-left: 6rem;
+  }
+}
+
+.app-rank-arrows {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  bottom: 0;
+  
+  width: 6rem;
+}
+
+.rank-btn {
+  position: absolute;
+  left: 1.5em;
+  
+  width: 4em;
+
+  opacity: 0.25;
+  
+  text-align: center;
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  &.rank-btn--up {
+    top: 0;
+  }
+
+  &.rank-btn--down {
+    top: 48px;
+  }
+}
+
+.rank-count {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  
+  display: inline-block;
+  width: 100%;
+  
+  color: #DDD;
+  text-align: center;
+}
+
+.item-body {
+  margin-left: 6rem;
+}
