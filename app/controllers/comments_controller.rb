@@ -12,6 +12,7 @@ class CommentsController < ItemsController
     @comment.item = @item
 
     if @comment.save
+      ItemsMailer.item_notification(current_user, @item).deliver
       redirect_to @item, :notice => "Comment created!"
     else
       redirect_to @item, :notice => "There was an error"
