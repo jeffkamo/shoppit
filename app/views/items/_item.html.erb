@@ -6,9 +6,13 @@
       </h2>
     </header>
 
-    <%= render "item-rank" %>
+    <%= render "item_rank" %>
     
     <div class="item-body">
       <%= item.description %>
     </div>
+
+    <footer class="item-footer">
+      <%= format_date(item.created_at) %>
+    </footer>
   </article>
