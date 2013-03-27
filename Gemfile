@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'sqlite3'
 gem 'devise'
+gem 'sqlite3', :group => [:development, :test]
+gem 'pg', :group => [:production]
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -11,6 +12,7 @@ end
 
 group :development do
     gem 'thin'
+    gem 'faker'
 end
 
 gem 'rspec-rails', :group => [:development, :test]
