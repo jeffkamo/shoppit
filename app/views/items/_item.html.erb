@@ -1,0 +1,14 @@
+
+  <article class="app-item span9">
+    <header class="item-header">
+      <h2 class="item-heading">
+        <%= link_to item.name, item %>
+      </h2>
+    </header>
+
+    <%= render "item-rank" %>
+    
+    <div class="item-body">
+      <%= item.description %>
+    </div>
+  </article>

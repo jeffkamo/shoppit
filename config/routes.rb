@@ -1,9 +1,15 @@
 Shoppit::Application.routes.draw do
+  devise_for :users
+
   resources :items
 
   resources :items, :only => [:show, :edit] do
     resources :comments
   end
+
+  resources :comments, :only => [:index]
+
+  root :to => 'items#index'
 
   # do
   #   member do

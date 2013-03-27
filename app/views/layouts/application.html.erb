@@ -9,29 +9,27 @@
 </head>
 <body>
   <div class="wrap">
-    <header class="apphead navbar nav-fixed-top">
-      <div class="navbar-inner">
-        <a class="brand" href="/items">Shoppit</a>
-        <!--ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-        </ul-->
+    <%= render 'layouts/header' %>
+
+    <% if notice || alert %>
+      <div class="flash">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
-    </header>
+    <% end %>
 
     <section class="app container">
+      <% if user_signed_in? %>
+        Welcome <%= current_user.email %>!
+      <% end %>
+
       <%= yield %>
     </section>
 
     <div class="push"></div>
   </div>
   
-  <footer class="appfoot">
-    <div class="container">
-      <p class="muted credit">A "Ruby On Rails, For Starters" Workshop Site by <a href="http://www.jeffkamo.com">Jeff Kamo</a></p>
-    </div>
-  </footer>
+  <%= render 'layouts/footer' %>
 
   <%= javascript_include_tag "application" %>
 </body>

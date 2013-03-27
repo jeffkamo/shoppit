@@ -1,14 +1,5 @@
-<% # -------------------------------------------------- # %>
-<% # Item Introduction %>
-
-<section>
-  <h1>
-      <%= link_to @item.name, @item %>
-  </h1>
-
-  <%= render "item-rank" %>
-
-  <%= @item.description %>
-</section>
+<div class="app-items row">
+  <%= render 'item', :item => @item %>
+</div>
 
 <%= render "comments" %>

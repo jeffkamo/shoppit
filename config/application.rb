@@ -58,5 +58,8 @@ module Shoppit
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # This will help with deploying to Heroku (is related to Devise gem)
+    config.assets.initialize_on_precompile = false
   end
 end

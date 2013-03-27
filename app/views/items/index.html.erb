@@ -1,17 +1,13 @@
 <div class="app-items row">
-  <% @items.each do |item| %>
-    <article class="app-item span9">
-      <header class="item-header">
-        <h2 class="item-heading">
-          <%= link_to item.name, item %>
-        </h2>
-      </header>
-
-      <%= render "item-rank" %>
-      
-      <div class="item-body">
-        <%= item.description %>
-      </div>
-    </article>
+  <% if user_signed_in? %>
+    <h2>Your Items</h2>
+    <% current_user.items.each do |item| %>
+      <article><%= link_to item.name, item %></article>
+    <% end %>
+    <%= link_to "Create New Item", new_item_path %>
+  <% else %>
+    <%= link_to "Sign In to Create a Question", new_user_session_path %>
   <% end %>
+
+  <%= render 'item_collection', :items => @items %>
 </div>

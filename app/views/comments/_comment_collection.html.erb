@@ -1,0 +1,9 @@
+<% if comments.empty? %>
+  <div class="muted">
+    There are currently no comments!
+  </div>
+<% else %>
+  <% comments.each do |c| %>
+    <%= render 'comments/comment', :comment => c %>
+  <% end %>
+<% end %>
