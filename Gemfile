@@ -16,6 +16,7 @@ end
 gem 'rspec-rails', :group => [:development, :test]
 
 gem 'jquery-rails'
+gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 
 # To use ActiveModel has_secure_password
