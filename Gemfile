@@ -4,7 +4,7 @@ gem 'rails', '3.2.12'
 gem 'devise'
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => [:production]
-gem 'thin'
+# gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
