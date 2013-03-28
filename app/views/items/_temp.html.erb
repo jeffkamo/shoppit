@@ -1,0 +1,7 @@
+<!-- Use this for a User Profile page or something... -->
+
+<% current_user.items.each do |item| %>
+  <article>
+    <%= link_to item.name, item %>
+  </article>
+<% end %>

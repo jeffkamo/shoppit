@@ -1,39 +1,54 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .app-item {
   position: relative;
   
-  padding-bottom: 1rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0 1rem;
+  border: 1px solid #e9e9e9;
   
-  &:hover {
-    background: #f9f9f9;
-  }
-}
+  background: #f9f9f9;
+  
+  // &:hover {
+  //   background: #f9f9f9;
+  // }
 
-.item-header {
-  position: relative;
-
-  .item-heading {
-    padding-left: 6rem;
+  &:last-of-type {
+    margin-bottom: 1rem;
   }
 }
 
 .app-rank-arrows {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  right: -10px;
+  top: 10px;
   
-  width: 6rem;
+  display: table;
+}
+
+.item-body {
+  padding-right: 1rem;
+}
+
+.item-header {
+  position: relative;
+  
+  padding-right: 1rem;
+}
+
+.item-heading {
+  font-size: 20px;
+  line-height: 1.3em;
+}
+
+.item-footer {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  
+  color: #ddd;
+  text-align: right;
 }
 
 .rank-btn {
-  position: absolute;
-  left: 1.5em;
-  
-  width: 4em;
+  display: table-row;
 
   opacity: 0.25;
   
@@ -42,28 +57,12 @@
   &:hover {
     opacity: 1;
   }
-  
-  &.rank-btn--up {
-    top: 0;
-  }
-
-  &.rank-btn--down {
-    top: 48px;
-  }
 }
 
 .rank-count {
-  position: absolute;
-  top: 24px;
-  left: 0;
-  
-  display: inline-block;
+  display: table-row;
   width: 100%;
   
   color: #DDD;
   text-align: center;
-}
-
-.item-body {
-  margin-left: 6rem;
 }

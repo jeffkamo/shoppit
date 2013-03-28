@@ -1,18 +1,21 @@
-
-  <article class="app-item span9">
-    <header class="item-header">
-      <h2 class="item-heading">
-        <%= link_to item.name, item %>
-      </h2>
-    </header>
-
+<article class="app-item span9">
+  <div class="row">
     <%= render "item_rank" %>
     
-    <div class="item-body">
-      <%= item.description %>
-    </div>
+    <div class="span8">
+      <header class="item-header">
+        <h2 class="item-heading">
+          <%= link_to item.name, item %>
+        </h2>
+      </header>
+      
+      <div class="item-body">
+        <%= item.description %>
+      </div>
 
-    <footer class="item-footer">
-      <%= format_date(item.created_at) %>
-    </footer>
-  </article>
+      <footer class="item-footer">
+        <%= format_date(item.created_at) %>
+      </footer>
+    </div>
+  </div>
+</article>

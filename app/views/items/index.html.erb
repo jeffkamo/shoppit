@@ -1,13 +1,3 @@
 <div class="app-items row">
-  <% if user_signed_in? %>
-    <h2>Your Items</h2>
-    <% current_user.items.each do |item| %>
-      <article><%= link_to item.name, item %></article>
-    <% end %>
-    <%= link_to "Create New Item", new_item_path %>
-  <% else %>
-    <%= link_to "Sign In to Create a Question", new_user_session_path %>
-  <% end %>
-
   <%= render 'item_collection', :items => @items %>
 </div>

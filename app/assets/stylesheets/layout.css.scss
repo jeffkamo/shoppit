@@ -1,7 +1,14 @@
 @import 'bootstrap';
 
+// -----------------------------------------------------------------------------
+// General
+
 html, body {
   height: 100%;
+}
+
+.push {
+  height: 60px;
 }
 
 .wrap {
@@ -12,19 +19,41 @@ html, body {
   overflow: hidden;
 }
 
-.push {
-  height: 60px;
-}
+// -----------------------------------------------------------------------------
+// App Header
 
 .apphead {
+  .nav-signin {
+    float: right;
+    
+    color: white;
+    line-height: 3em;
+  }
+
+  .container {
+    position: relative;
+    left: -20px;
+
+    width: 940px;
+  }
+  
   .navbar-inner {
+    margin: 0;
+    width: 100%;
+    
     border-radius: 0;
   }
 }
 
+// -----------------------------------------------------------------------------
+// App Body
+
 .app {
     padding: 0 20px;
 }
+
+// -----------------------------------------------------------------------------
+// App Footer
 
 .appfoot {
   background: #f5f5f5;
