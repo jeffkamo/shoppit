@@ -13,17 +13,17 @@
     <%= render 'layouts/header' %>
 
     <% if notice || alert %>
-      <div class="flash">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+      <div class="flash container">
+        <% if notice %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert"><%= alert %></p>
+        <% end %>
       </div>
     <% end %>
 
     <section class="app container">
-      <% if user_signed_in? %>
-        Welcome <%= current_user.email %>!
-      <% end %>
-
       <%= yield %>
     </section>
 

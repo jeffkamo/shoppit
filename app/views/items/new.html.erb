@@ -1,13 +1,24 @@
 <h1>New Item!</h1>
 
 <%= form_for @item do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  
+  <div class="row">
+    <div class="span3">
+      <%= f.label :cost %>
+      <%= f.text_field :cost %>
+    </div>
+    <div class="span9">
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+  </div>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
 
-    <br />
+  <br />
 
-    <%= f.submit %>
+  <%= f.submit 'Share Item', :class => 'btn' %>
 <% end %>

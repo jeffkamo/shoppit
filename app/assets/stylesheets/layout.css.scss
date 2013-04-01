@@ -23,8 +23,10 @@ html, body {
 // App Header
 
 .apphead {
-  .nav-signin {
+  .nav-link {
     float: right;
+    
+    margin-left: 1em;
     
     color: white;
     line-height: 3em;

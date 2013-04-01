@@ -1,7 +1,9 @@
+// -----------------------------------------------------------------------------
+// Item Module
+
 .app-item {
   position: relative;
   
-  // margin: 0 0 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem 0 1rem;
   border: 1px solid #e9e9e9;
@@ -11,14 +13,6 @@
   &:last-of-type {
     margin-bottom: 1rem;
   }
-}
-
-.app-rank-arrows {
-  position: relative;
-  right: -10px;
-  top: 10px;
-  
-  display: table;
 }
 
 .item-body {
@@ -42,6 +36,32 @@
   
   color: #ddd;
   text-align: right;
+}
+
+// -----------------------------------------------------------------------------
+// New Item Form
+
+.new_item {
+  input:not([type='submit']), textarea {
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+  }
+
+  input:not([type='submit']) {
+    height: 3em;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Rank Display
+
+.app-rank-arrows {
+  position: relative;
+  right: -10px;
+  top: 10px;
+  
+  display: table;
 }
 
 .rank-btn {
