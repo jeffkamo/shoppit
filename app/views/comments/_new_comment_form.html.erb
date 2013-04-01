@@ -1,4 +1,4 @@
-<%= form_for @comment, :url => item_comments_path(@item) do |f| %>
+<%= form_for @comment, :remote => true, :url => item_comments_path(@item) do |f| %>
   <%= f.text_area :dialogue, :rows => 5 %>
   <br />
   <%= f.submit 'Post Your Thoughts', :class => 'btn' %>

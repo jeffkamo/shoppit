@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :find_item, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_item, :only => [:show]
+  before_filter :find_authenticated_item, :only => [:edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -52,5 +53,9 @@ class ItemsController < ApplicationController
 
   def find_item
     @item = Item.find(params[:item_id] || params[:id])
+  end
+
+  def find_authenticated_item
+    @item = current_user.item.find(params[:item_id] || params[:id])
   end
 end

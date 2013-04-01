@@ -12,10 +12,22 @@ class CommentsController < ItemsController
     @comment.item = @item
 
     if @comment.save
-      ItemsMailer.item_notification(current_user, @item).deliver
-      redirect_to @item, :notice => "Comment created!"
+      # Email disabled for now since the password won't work
+      # ItemsMailer.item_notification(current_user, @item).deliver
+      # redirect_to @item, :notice => "Comment created!"
+      
+      # The actual response to a successful save can be found in /views/comments/create.js.erb
     else
       redirect_to @item, :notice => "There was an error"
+    end
+  end
+
+  def destroy
+    @comment = current_user.comment
+    if @comment.destroy
+      redirect_to item_path(@comment.item)
+    else
+      redirect_to item_path(@comment.item), :notice => "There was a problem :("
     end
   end
 end

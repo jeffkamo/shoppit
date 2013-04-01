@@ -17,6 +17,7 @@ gem 'rspec-rails', :group => [:development, :test]
 gem 'jquery-rails'
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
+gem 'quiet_assets'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

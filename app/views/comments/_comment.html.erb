@@ -1,7 +1,10 @@
 <article class="comment">
   <%= comment.dialogue %>
   <footer>
-    <%= link_to "Edit", edit_item_comment_path(comment) %>
-    <%= link_to "Delete", item_comment_path(comment), :method => :delete, :confirm => "Are you sure?" %>
+    <span class="author">
+      <%= puts comment.user %>
+    </span>
+    <!--%= link_to "Edit", edit_item_comment_path(item_id: comment.item, id: comment) %-->
+    <!-- %= link_to "Delete", item_comment_path(comment.item, comment), :method => :delete, :confirm => "Are you sure?" %-->
   </footer>
 </article>

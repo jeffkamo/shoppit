@@ -1,8 +1,12 @@
-<aside class="app-comments">
-  <h2>Discussion</h2>
+<aside class="app-comments row">
+  <h2 class="span12">Discussion</h2>
 
-  <%= render 'comments/new_comment_form' %>
-
-  <%= render 'comments/comment_collection', :comments => @all_comments %>
+  <div class="span12">
+    <%= render 'comments/new_comment_form' %>
+  </div>
+    
+  <div class="span12">
+    <%= render 'comments/comment_collection', :comments => @all_comments %>
+  </div>
 
 </aside>
