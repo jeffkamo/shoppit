@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), :notice => "Item created!"
     else
-      # render :new, :notice => "Something went wrong..."
       redirect_to @item, :notice => "Something went wrong..."
     end
   end
@@ -28,6 +27,10 @@ class ItemsController < ApplicationController
 
     # Prepare an empty comment
     @comment = Comment.new
+
+    # Prepare an empty vote
+    # @vote = current_user.vote_from(@item)
+    @vote = (current_user && current_user.vote_from(@item)) || Vote.new
   end
 
   def edit
@@ -56,6 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def find_authenticated_item
-    @item = current_user.item.find(params[:item_id] || params[:id])
+    @item = current_user.items.find(params[:item_id] || params[:id])
   end
 end

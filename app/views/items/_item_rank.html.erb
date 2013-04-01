@@ -1,13 +1,30 @@
 <div class="app-rank-arrows span1">
-  <a class="rank-btn rank-btn--up">
-    <i class="icon-chevron-up"></i>
-  </a>
+  
+  <% if current_user && current_user.has_voted?(item) && current_user.is_vote_up?(item) %>
+    <%= link_to '<i class="icon-chevron-up"></i>'.html_safe,
+      item_vote_path(item, vote),
+      :method => 'DELETE',
+      :class => 'rank-btn rank-btn--voted' %>
+  <% else %>
+    <%= link_to '<i class="icon-chevron-up"></i>'.html_safe,
+      item_votes_path(item),
+      :method => 'POST',
+      :class => 'rank-btn' %>
+  <% end %>
 
   <span class="rank-count">
-    123
+    <%= item.tally_votes %>
   </span>
-
-  <a class="rank-btn rank-btn--down">
-    <i class="icon-chevron-down"></i>
-  </a>
+  
+  <% if current_user && current_user.has_voted?(item) && !current_user.is_vote_up?(item) %>
+    <%= link_to '<i class="icon-chevron-down"></i>'.html_safe,
+      item_vote_path(item, vote),
+      :method => 'DELETE',
+      :class => 'rank-btn rank-btn--voted' %>
+  <% else %>
+    <%= link_to '<i class="icon-chevron-down"></i>'.html_safe,
+      item_votes_path(:item_id => item.id, :is_vote_up => :false),
+      :method => 'POST',
+      :class => 'rank-btn' %>
+  <% end %>
 </div>

@@ -72,8 +72,12 @@
   text-align: center;
   
   &:hover {
-    opacity: 1;
+    opacity: .99;
   }
+}
+
+.rank-btn--voted {
+  opacity: .65;
 }
 
 .rank-count {

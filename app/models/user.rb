@@ -11,4 +11,18 @@ class User < ActiveRecord::Base
 
   has_many :items
   has_many :comments
+  has_many :votes
+  has_many :voted_items, :through => :votes, :source => 'item'
+
+  def has_voted?(item)
+    voted_items.include?(item)
+  end
+
+  def vote_from(item)
+    votes.where(:item_id => item.id).first
+  end
+
+  def is_vote_up?(item)
+    vote_from(item).is_vote_up
+  end
 end

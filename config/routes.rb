@@ -4,6 +4,7 @@ Shoppit::Application.routes.draw do
   resources :items
 
   resources :items, :only => [:show, :edit] do
+    resources :votes, :only => [:create, :destroy]
     resources :comments
   end
 
