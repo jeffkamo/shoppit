@@ -2,14 +2,22 @@
   <div class="row">
     <%= render "item_rank", :item => item, :vote => item.votes %>
 
-    <div class="span2">
-      <span style="display: block; width: 120px; height: 90px; background: white; border: 1px solid #eee; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05)"></span>
-    </div>
+    <figure class="span2 item-graphic">
+      <a href='<%= "#{item.url}" %>'>
+        <span style="display: block; width: 120px; height: 90px; background: white; border: 1px solid #eee; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05)"></span>
+      </a>
+        
+      <% if item.cost %>
+        <figcaption class="item-banner">
+          <%= number_to_currency(item.cost) %>
+        </figcaption>
+      <% end %>
+    </figure>
     
     <div class="span9">
       <header class="item-header">
         <h2 class="item-heading">
-          <%= link_to item.name, item %>
+          <%= link_to item.name, item.url %>
         </h2>
       </header>
       
@@ -18,7 +26,20 @@
       </div>
 
       <footer class="item-footer">
-        <%= format_date(item.created_at) %>
+        <% if item.comments.count > 1 %>
+          <%= link_to "#{item.comments.count} Comments", item,
+            :class => 'item-discussionCount' %>
+        <% elsif item.comments.count == 1 %>
+          <%= link_to "#{item.comments.count} Comment", item,
+            :class => 'item-discussionCount' %>
+        <% else %>
+          <%= link_to "Start a Discussion", item,
+            :class => 'item-discussionCount' %>
+        <% end %>
+        
+        <span class="item-createdDate">
+          <%= format_date(item.created_at) %>
+        </span>
       </footer>
     </div>
   </div>

@@ -25,17 +25,84 @@
   padding-right: 1rem;
 }
 
+.item-graphic {
+  margin: 0 0 0 20px;
+  
+  text-align: center;
+}
+
+.item-banner {
+  position: relative;
+  
+  margin-right: 1.5em;
+  margin-top: 1em;
+  
+  background: #dd4814;
+  opacity: 0.3;
+  
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2em;
+  
+  .app-item:hover & {
+    opacity: 0.8;
+  }
+  
+  &:before,
+  &:after {
+    content: '';
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    
+    display: block;
+    border: 12px solid transparent;
+    height: 0;
+  }
+
+  &:before {
+    left: 0;
+    
+    border-right: 0;
+    border-left: 10px solid #f9f9f9;
+  }
+
+  &:after {
+    right: 0;
+    
+    border-left: 0;
+    border-right: 10px solid #f9f9f9;
+  }
+}
+
 .item-heading {
   font-size: 20px;
   line-height: 1.3em;
 }
 
+// -----------------------------------------------------------------------------
+// Item Footer Module
+
 .item-footer {
-  margin-top: 1rem;
-  padding: 0 1rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem 0 0;
   
   color: #ddd;
-  text-align: right;
+  text-align: justify;
+  line-height: 1em;
+  
+  &:after { // Footer shiv - enhances justify text alignment
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+
+  .item-discussionCount,
+  .item-createdDate {
+    display: inline-block;
+  }
 }
 
 // -----------------------------------------------------------------------------
