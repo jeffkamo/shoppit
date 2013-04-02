@@ -5,6 +5,7 @@ gem 'devise'
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => [:production]
 gem 'faker'
+gem "paperclip", "~> 3.0"
 # gem 'thin'
 
 group :assets do

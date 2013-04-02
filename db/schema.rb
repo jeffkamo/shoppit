@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401070305) do
+ActiveRecord::Schema.define(:version => 20130402063555) do
 
   create_table "comments", :force => true do |t|
     t.text     "dialogue"
@@ -26,9 +26,13 @@ ActiveRecord::Schema.define(:version => 20130401070305) do
     t.text     "description"
     t.float    "cost"
     t.string   "url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", :force => true do |t|

@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), :notice => "Item created!"
     else
-      redirect_to @item, :notice => "Something went wrong..."
+      redirect_to @item, :alert => "Something went wrong..."
     end
   end
 
@@ -38,9 +38,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update_attributes(params[:item])
-      redirect_to item_path(@item)
+      redirect_to item_path(@item), :notice => "Item Modified!"
     else
-      render :edit
+      render :edit, :alert => "Something went wrong..."
     end
   end
 

@@ -16,3 +16,6 @@
 
 # Ignore BS
 .DS_Store
+
+# Ignore file uploads
+/public/system

@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :cost, :description, :name, :url
+  attr_accessible :cost, :description, :name, :url, :image
 
   validates_presence_of :name, :cost, :url
 
@@ -7,6 +7,16 @@ class Item < ActiveRecord::Base
   belongs_to :user
   has_many :votes
   has_many :users, :through => :votes
+
+  has_attached_file :image,
+    :styles => { :medium  => "300x300>",
+                 :thumb   => "100x100>" },
+    :default_url => "/assets/missing.png"
+
+  attr_accessor :image_file_name
+  attr_accessor :image_content_type
+  attr_accessor :image_file_size
+  attr_accessor :image_updated_at
 
   def tally_votes
     count = 0

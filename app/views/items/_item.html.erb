@@ -4,7 +4,9 @@
 
     <figure class="span2 item-graphic">
       <a href='<%= "#{item.url}" %>'>
-        <span style="display: block; width: 120px; height: 90px; background: white; border: 1px solid #eee; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05)"></span>
+        <%= image_tag item.image.url, :class => 'item-thumb' %>
+        <!--%= image_tag 'missing.png' %-->
+        <!--span style="display: block; width: 100px; height: 100px; margin: 0 10px; background: white; border: 1px solid #eee; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05)"></span-->
       </a>
         
       <% if item.cost %>
