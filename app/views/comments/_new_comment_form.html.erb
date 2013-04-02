@@ -1,5 +1,7 @@
-<%= form_for @comment, :remote => true, :url => item_comments_path(@item) do |f| %>
-  <%= f.text_area :dialogue, :rows => 5 %>
-  <br />
-  <%= f.submit 'Post Your Thoughts', :class => 'btn' %>
+<% if current_user %>
+    <%= form_for @comment, :remote => true, :url => item_comments_path(@item) do |f| %>
+      <%= f.text_area :dialogue, :rows => 5 %>
+      <br />
+      <%= f.submit 'Post Your Thoughts', :class => 'btn' %>
+    <% end %>
 <% end %>

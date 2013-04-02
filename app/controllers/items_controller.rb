@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_filter :find_authenticated_item, :only => [:edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.all.reverse
   end
 
   def new
